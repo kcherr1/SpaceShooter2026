@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2645155208977401365}
   - component: {fileID: 6263949130825588109}
-  m_Layer: 0
+  - component: {fileID: -5359554579774650103}
+  m_Layer: 6
   m_Name: Projectile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -79,6 +80,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7310926, y: 0.16431859}
   m_EdgeRadius: 0
+--- !u!114 &-5359554579774650103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997487652698694584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d168c5965af214ac2afc6029897b6e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  speed: 9
 --- !u!1 &9121743377604145004
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8985071517794295134}
   - component: {fileID: 778560549009864715}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
