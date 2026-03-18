@@ -6,30 +6,28 @@ public class Player : MonoBehaviour {
   public GameObject bulletPrefab;
   public Transform bulletSpawnPoint;
 
-  private SpaceShooterInputActions inputActions;
+  private SpaceShooterInputActions.StandardActions input;
   
 
 
   private const float Y_LIMIT = 4.6f;
 
   private void Start() {
-    inputActions = new();
+    var inputActions = new SpaceShooterInputActions();
     inputActions.Enable();
-    inputActions.Standard.Enable();
+    input = inputActions.Standard;
+    input.Enable();
   }
 
   private void Update() {
-    if (inputActions.Standard.Fire.WasPressedThisFrame()) {
+    if (input.Fire.WasPressedThisFrame()) {
       GameObject bulletObj = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
     }
 
 
-    if (inputActions.Standard.MoveUp.IsPressed()) {
-      this.transform.Translate(Vector3.up * speed * Time.deltaTime);
-    }
-    else if (inputActions.Standard.MoveDown.IsPressed()) {
-      this.transform.Translate(Vector3.down * speed * Time.deltaTime);
-    }
+        var vertMove = input.MoveVertically.ReadValue<float>();
+      this.transform.Translate(Vector3.up * speed * Time.deltaTime * vertMove);
+
     if (this.transform.position.y > Y_LIMIT) {
       this.transform.position = new Vector3(transform.position.x, Y_LIMIT);
     }
