@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 5
+  expoPrefab: {fileID: 5386597588948128404, guid: 8a7efade44ac549dda33630687e1524f, type: 3}
 --- !u!50 &-1162253528925871094
 Rigidbody2D:
   serializedVersion: 5

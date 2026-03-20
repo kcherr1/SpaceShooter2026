@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
   public Transform bulletSpawnPoint;
   public Slider sliderHealth;
   public Shield shield;
+  public GameObject expoPrefab;
 
   // private fields
   private float health;
@@ -44,6 +45,10 @@ public class Player : MonoBehaviour {
   public void DamageFromEnemy() {
     if (!shield.IsActive) {
       health -= 0.25f;
+      if (health <= 0) {
+        var expoObj = Instantiate(expoPrefab, transform.position, Quaternion.identity);
+        Destroy(expoObj, expoObj.GetComponent<ParticleSystem>().main.duration);
+      }
     }
   }
 
